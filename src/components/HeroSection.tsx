@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Menu, Globe, Star, MapPin, Phone } from "lucide-react";
+import { Menu, Globe, Star, MapPin, Phone, LogIn, UserPlus } from "lucide-react";
 
 const heroImages = [
   {
@@ -67,7 +67,7 @@ export default function HeroSection() {
             ))}
           </nav>
 
-          {/* Language Toggle & Mobile Menu */}
+          {/* Language Toggle & Auth Buttons & Mobile Menu */}
           <div className="flex items-center space-x-4">
             <Button
               variant="outline"
@@ -78,6 +78,18 @@ export default function HeroSection() {
               <Globe className="w-4 h-4" />
               <span>{language === "en" ? "ខ្មែរ" : "EN"}</span>
             </Button>
+
+            {/* Auth Buttons - Desktop */}
+            <div className="hidden md:flex items-center space-x-2">
+              <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+                <LogIn className="w-4 h-4" />
+                <span>{language === "en" ? "Login" : "ចូល"}</span>
+              </Button>
+              <Button size="sm" className="flex items-center space-x-2">
+                <UserPlus className="w-4 h-4" />
+                <span>{language === "en" ? "Sign Up" : "ចុះឈ្មោះ"}</span>
+              </Button>
+            </div>
 
             {/* Mobile Menu */}
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -98,6 +110,19 @@ export default function HeroSection() {
                       {language === "en" ? item.label : item.labelKh}
                     </a>
                   ))}
+                  
+                  {/* Auth Buttons - Mobile */}
+                  <div className="pt-4 border-t space-y-3">
+                    <Button variant="ghost" className="w-full justify-start" size="sm">
+                      <LogIn className="w-4 h-4 mr-2" />
+                      {language === "en" ? "Login" : "ចូល"}
+                    </Button>
+                    <Button className="w-full justify-start" size="sm">
+                      <UserPlus className="w-4 h-4 mr-2" />
+                      {language === "en" ? "Sign Up" : "ចុះឈ្មោះ"}
+                    </Button>
+                  </div>
+                  
                   <div className="pt-4 border-t">
                     <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
                       <Phone className="w-4 h-4" />

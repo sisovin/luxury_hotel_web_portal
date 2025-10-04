@@ -2,6 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import RoomShowcase from "@/components/RoomShowcase";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import BookingWidget from "@/components/BookingWidget";
+import Footer from "@/components/Footer";
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
       <RoomShowcase />
       <AmenitiesSection />
       <BookingWidget />
+      <Footer />
     </div>
   );
 }
